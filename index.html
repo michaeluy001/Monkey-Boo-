@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monkey Boo!</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat+Brush&family=Caveat:wght@400..700&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <style>
+
+        body {  
+             background-color: burlywood; 
+             display: flex;
+             flex-direction: column;
+             margin-bottom: 0px;
+        }
+
+        .platform {
+            position:relative;
+            align-items:center;
+            justify-content: center;
+            display:inline-flex;
+            flex-direction: column;
+            background-image: url("game background.jpg");
+            background-size: 50%;
+            border-radius: 30px;
+            border-bottom-left-radius: 30% ;
+            border-bottom-right-radius: 30%;
+        }
+
+
+        .grid {
+            
+            width: 500px;
+            height: 500px;
+            display: grid;
+            grid: repeat(3, auto) / auto-flow;
+            border: 5px ridge gray;
+            border-radius: 10%;
+            border-bottom-right-radius: 60%;
+            border-top-left-radius: 60%;
+            background-color: #FFBF46;
+            
+
+        }
+
+        .grid > li {
+
+            
+            list-style: none;
+            border-radius: 50%;
+            background-color: beige;
+            border: 5px solid darkolivegreen;
+            background-size: 105%;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+
+        .dashboard {
+            min-height: 300px;
+            align-content: center;
+            justify-items: center;
+            background-color: rgb(214, 252, 239);
+            border-top-left-radius: 40%;
+            border-top-right-radius: 40%;
+        }
+
+        #score-board {
+            
+            align-content: center;
+            text-align: center;
+            width: 530px;
+            height: 220px;
+            margin: 0px;
+            padding: 3px;
+            font-family: "Caveat Brush", cursive;
+            background-color: #be945b;
+            border-radius: 10px;
+            
+
+        }
+        #score {
+            font-size: 3.5rem;
+            font-weight: bolder;
+            padding: 0px;
+            margin: 5px;
+            color:#FFBF46;
+    
+
+            
+        }
+        #status {
+            
+            margin: 0px;
+            text-wrap:wrap;
+            font-size: 30px;
+            color: #122620;
+            font-family: "Caveat Brush", cursive;
+            font-weight: bolder;
+            font-style: normal;
+        }
+
+        span {
+
+            font-size: 150%;
+        }
+
+        .button-holder {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #try-again {
+            display: none;
+            padding: 15px 25px;
+            font-size: 24px;
+            cursor: pointer;
+            text-align: center;
+            text-decoration: none;
+            outline: none;
+            color: #fff;
+            background-color: #04AA6D;
+            border: none;
+            border-radius: 15px;
+            box-shadow: 0 9px #999;
+            }
+
+        .button:hover {
+        
+            background-color: #3e8e41
+        }   
+
+        .button:active {                    /*  i need to learn what this does */
+            background-color: #3e8e41;
+            box-shadow: 0 5px #666;
+            transform: translateY(4px);           
+        }
+                    
+        
+        footer {
+            text-align: center;
+            background-color: #2c3e50;
+            color: white;
+            padding: 5px;
+            font-size: 14px;
+            position:relative;
+            width: 100%;
+            
+        }
+
+        @media (min-width: 480px) and (max-width: 800px) {
+
+        .platform {
+            position:relative;
+            align-items:center;
+            justify-content: center;
+            display:inline-flex;
+            flex-direction: column;
+            background-image: url("game background.jpg");
+            background-size: 50%;
+            border-radius: 30px;
+            border-bottom-left-radius: 30% ;
+            border-bottom-right-radius: 30%;
+            
+        }
+
+        .grid {
+            width: 300px;
+            height: 300px;
+        }
+
+        .grid > li {
+            list-style: none;
+            border-radius: 50%;
+            background-color: beige;
+            border: 5px solid darkolivegreen;
+            background-size: 105%;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        #score-board {         
+            width: 300px;
+            height: 200px;
+        }
+        #status { 
+            font-size: 95%;}
+    }
+
+    </style>
+
+</head>
+<body>
+    <div class="platform"> 
+        <div class ="grid">
+            <li id="Cell-1"> </li>
+            <li id="Cell-2"> </li>
+            <li id="Cell-3"> </li>
+            <li id="Cell-4"> </li>
+            <li id="Cell-5"> </li>
+            <li id="Cell-6"> </li>
+            <li id="Cell-7"> </li>
+            <li id="Cell-8"> </li>
+            <li id="Cell-9"> </li>      
+        </div>
+
+    </div>
+
+    <div class="dashboard">
+        <div id="score-board" >
+            <p id= "status">Find all the <span style="color: yellow"> bananas.</span> But be careful! <br> <span style="color: brown"> Monkeyboo!</span> is hiding in one of these cells. <br> Click on a cell to start the game.</p>
+            <p id="score"></p> 
+                <div class="button-holder">
+                     <Button type="Button" id="try-again">Play Again</Button>   
+                </div>
+        </div>
+    </div>
+
+</body>
+
+<footer>
+    <p>&copy; 2024 Monkey Boo. All rights reserved.</p>
+  </footer>
+
+
+</html>
+<script src="scripts/main.js"></script>
